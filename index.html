@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGuard AI — AI-Powered Code Vulnerability Scanner</title>
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path><polyline points='9 12 11 14 15 10'></polyline></svg>">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                </div>
+                <div class="logo-text">
+                    <span class="brand-name">CODEGUARD AI</span>
+                    <span class="brand-sub">by techinA</span>
+                </div>
+            </a>
+            
+            <nav class="nav-links" id="navLinks">
+                <a href="#scanner" class="nav-link">Scanner</a>
+                <a href="#dashboard" class="nav-link">Analysis</a>
+                <a href="#vulnerabilities" class="nav-link">Vulnerabilities</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#about" class="nav-link">About</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#scanner" class="btn btn-primary btn-sm">Launch Scanner</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="badge hero-badge">
+                        <span class="pulse-dot"></span>
+                        AI SECURITY • DEVELOPER TOOL • HACKATHON 2026
+                    </div>
+                    <h1 class="hero-title">
+                        Secure Your Code <br><span class="text-gradient">Before It Ships.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        CodeGuard AI analyzes source code, detects security vulnerabilities, explains the risk, and recommends secure fixes—all in one developer-friendly workspace.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#scanner" class="btn btn-primary btn-lg">
+                            Start Security Scan <i data-lucide="arrow-right"></i>
+                        </a>
+                        <a href="#how-it-works" class="btn btn-secondary btn-lg">
+                            Explore How It Works
+                        </a>
+                    </div>
+                    <div class="hero-trust">
+                        <span>Built for developers. Designed for secure coding.</span>
+                        <div class="tech-stack-tags">
+                            <span class="tag">Static Analysis</span>
+                            <span class="tag">AI Layer</span>
+                            <span class="tag">CWE Mapped</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="terminal-title">codeguard-soc-v2.1.exe</div>
+                        <div class="terminal-status"><span class="status-live">● LIVE</span></div>
+                    </div>
+                    <div class="terminal-body font-mono">
+                        <p class="t-comment">// CODEGUARD AI SECURITY KERNEL INITIALIZED</p>
+                        <p class="t-line"><span class="t-prompt">&gt;</span> target: <span class="t-string">auth_service_v1.py</span></p>
+                        <p class="t-line"><span class="t-prompt">&gt;</span> scanning patterns... <span class="t-success">[OK]</span></p>
+                        <div class="terminal-metrics">
+                            <div class="metric-box">
+                                <span class="metric-label">SECURITY SCORE</span>
+                                <span class="metric-value text-warning">42 <small>/ 100</small></span>
+                            </div>
+                            <div class="metric-box">
+                                <span class="metric-label">FINDINGS</span>
+                                <span class="metric-value text-danger">01 Crit / 02 High</span>
+                            </div>
+                        </div>
+                        <div class="terminal-alert">
+                            <i data-lucide="alert-triangle" class="text-danger"></i>
+                            <span>Critical SQL Injection detected in user authentication query. Immediate remediation required.</span>
+                        </div>
+                        <div class="terminal-command-line">
+                            <span class="t-prompt">&gt;</span> <span class="cursor-blink">Analyzing mitigation path...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scanner Section -->
+        <section id="scanner" class="scanner-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">INTERACTIVE WORKSPACE</span>
+                    <h2 class="section-title">Code Security Scanner</h2>
+                    <p class="section-desc">Paste your code. Choose the language. Let CodeGuard analyze the security risks.</p>
+                </div>
+
+                <div class="sample-loader-bar">
+                    <span class="loader-label"><i data-lucide="zap"></i> Quick Load Sample Vulnerabilities:</span>
+                    <div class="sample-buttons">
+                        <button class="btn-sample" data-sample="sqli">SQL Injection</button>
+                        <button class="btn-sample" data-sample="xss">Cross-Site Scripting</button>
+                        <button class="btn-sample" data-sample="secret">Hardcoded Secret</button>
+                        <button class="btn-sample" data-sample="cmdi">Command Injection</button>
+                    </div>
+                </div>
+
+                <div class="scanner-workspace">
+                    <div class="editor-toolbar">
+                        <div class="toolbar-left">
+                            <label for="languageSelect" class="sr-only">Programming Language</label>
+                            <div class="select-wrapper">
+                                <select id="languageSelect" class="language-select">
+                                    <option value="python">Python</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="java">Java</option>
+                                    <option value="php">PHP</option>
+                                    <option value="sql">SQL</option>
+                                    <option value="c">C / C++</option>
+                                </select>
+                            </div>
+                            <span class="file-info" id="fileInfo">main.py</span>
+                        </div>
+                        <div class="toolbar-right">
+                            <button id="clearCodeBtn" class="btn btn-subtle btn-sm" title="Clear Code">
+                                <i data-lucide="trash-2"></i> Clear
+                            </button>
+                            <button id="scanCodeBtn" class="btn btn-primary btn-sm">
+                                <i data-lucide="shield-alert"></i> Scan Code
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="editor-container">
+                        <div class="line-numbers" id="lineNumbers">1</div>
+                        <textarea id="codeEditor" class="code-textarea font-mono" placeholder="Paste your source code here..." spellcheck="false"></textarea>
+                    </div>
+
+                    <div class="editor-footer">
+                        <div class="editor-status">
+                            <span class="status-dot"></span> Ready for static & pattern analysis
+                        </div>
+                        <div class="ai-layer-tag">
+                            <i data-lucide="cpu"></i> AI Analysis Layer Enabled
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scan Progress Overlay / Animation -->
+                <div id="scanProgressModal" class="scan-progress-container hidden">
+                    <div class="scan-progress-box">
+                        <div class="scanner-radar">
+                            <div class="radar-beam"></div>
+                            <i data-lucide="shield" class="radar-icon"></i>
+                        </div>
+                        <h3 id="scanStatusTitle">Analyzing Source Code...</h3>
+                        <p id="scanStatusDesc" class="font-mono">Parsing source structure...</p>
+                        <div class="progress-bar-track">
+                            <div id="scanProgressBar" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Analysis Dashboard -->
+        <section id="dashboard" class="dashboard-section hidden">
+            <div class="container">
+                <div class="dashboard-header-flex">
+                    <div>
+                        <span class="section-tag">SECURITY ASSESSMENT</span>
+                        <h2 class="section-title">Analysis Dashboard</h2>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button id="generateReportBtn" class="btn btn-secondary">
+                            <i data-lucide="file-text"></i> Generate Security Report
+                        </button>
+                        <button id="reScanBtn" class="btn btn-subtle">
+                            <i data-lucide="rotate-cw"></i> New Scan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Score Card -->
+                    <div class="dashboard-card score-card">
+                        <div class="card-header-flex">
+                            <h3>Security Score</h3>
+                            <span id="scoreBadge" class="severity-badge critical">CRITICAL RISK</span>
+                        </div>
+                        <div class="score-display-wrapper">
+                            <div class="radial-score-container">
+                                <svg class="radial-ring" viewBox="0 0 120 120">
+                                    <circle class="ring-bg" cx="60" cy="60" r="50"></circle>
+                                    <circle id="ringProgress" class="ring-fill" cx="60" cy="60" r="50" stroke-dasharray="314" stroke-dashoffset="180"></circle>
+                                </svg>
+                                <div class="score-number-group">
+                                    <span id="securityScoreVal" class="score-number">42</span>
+                                    <span class="score-max">/100</span>
+                                </div>
+                            </div>
+                            <div class="score-meta">
+                                <p id="scoreSummaryText" class="score-desc">Code posture requires immediate remediation prior to production deployment.</p>
+                                <div class="score-delta font-mono">
+                                    <span>Target Posture: <strong class="text-success">&gt;90/100</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Breakdown Card -->
+                    <div class="dashboard-card summary-card">
+                        <h3>Vulnerability Summary</h3>
+                        <div class="vuln-counters">
+                            <div class="counter-box critical">
+                                <span class="c-num" id="countCritical">1</span>
+                                <span class="c-label">Critical</span>
+                            </div>
+                            <div class="counter-box high">
+                                <span class="c-num" id="countHigh">2</span>
+                                <span class="c-label">High</span>
+                            </div>
+                            <div class="counter-box medium">
+                                <span class="c-num" id="countMedium">1</span>
+                                <span class="c-label">Medium</span>
+                            </div>
+                            <div class="counter-box low">
+                                <span class="c-num" id="countLow">3</span>
+                                <span class="c-label">Low</span>
+                            </div>
+                        </div>
+                        <div class="scan-meta-list font-mono">
+                            <div class="meta-row"><span>Language:</span> <strong id="metaLang">Python</strong></div>
+                            <div class="meta-row"><span>Files Analyzed:</span> <strong>1</strong></div>
+                            <div class="meta-row"><span>Scan Time:</span> <strong id="metaTime">0.84s</strong></div>
+                            <div class="meta-row"><span>Analysis Engine:</span> <strong>Static Pattern + AI Layer</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vulnerabilities List Section -->
+                <div id="vulnerabilities" class="vuln-findings-wrapper">
+                    <div class="subsection-header">
+                        <h3>Detected Vulnerabilities (<span id="totalVulnCount">7</span>)</h3>
+                        <p>Click any finding to inspect risk details, attack vectors, and secure remediation.</p>
+                    </div>
+                    <div id="vulnerabilitiesContainer" class="vulnerabilities-grid">
+                        <!-- Injected via JavaScript -->
+                    </div>
+                </div>
+
+                <!-- AI Fix & Before/After Score Section -->
+                <div id="secure-fix" class="ai-fix-section">
+                    <div class="section-header text-center" style="margin-bottom: 2rem;">
+                        <span class="section-tag"><i data-lucide="cpu"></i> AI-POWERED REMEDIATION</span>
+                        <h2 class="section-title">AI Secure Fix & Comparison</h2>
+                        <p class="section-desc">Understand the vulnerability. Apply a safer approach and witness your security score improve instantly.</p>
+                    </div>
+
+                    <!-- Before/After Score Banner -->
+                    <div class="score-improvement-banner">
+                        <div class="improvement-side">
+                            <span class="imp-label">Before Fix</span>
+                            <span id="beforeScoreNum" class="imp-score text-danger">42 / 100</span>
+                        </div>
+                        <div class="improvement-arrow">
+                            <i data-lucide="arrow-right-circle"></i>
+                            <span class="font-mono">APPLY SECURE PATCH</span>
+                        </div>
+                        <div class="improvement-side success">
+                            <span class="imp-label">After Fix (Projected)</span>
+                            <span id="afterScoreNum" class="imp-score text-success">96 / 100</span>
+                        </div>
+                    </div>
+
+                    <div class="code-diff-container">
+                        <div class="diff-column vulnerable-col">
+                            <div class="diff-header">
+                                <span class="badge badge-danger">Vulnerable Code</span>
+                                <span id="vulnFileName" class="font-mono">main.py (Original)</span>
+                            </div>
+                            <pre class="diff-code font-mono" id="vulnerableCodeBlock"><code>import sqlite3
+
+username = input("Enter username: ")
+connection = sqlite3.connect("users.db")
+query = "SELECT * FROM users WHERE username='" + username + "'"
+result = connection.execute(query)
+print(result.fetchall())</code></pre>
+                        </div>
+
+                        <div class="diff-column secure-col">
+                            <div class="diff-header">
+                                <span class="badge badge-success">Recommended Secure Code</span>
+                                <span id="secureFileName" class="font-mono">main.py (Patched)</span>
+                            </div>
+                            <pre class="diff-code font-mono" id="secureCodeBlock"><code>import sqlite3
+
+username = input("Enter username: ")
+connection = sqlite3.connect("users.db")
+# Using parameterized queries to prevent SQL Injection
+query = "SELECT * FROM users WHERE username = ?"
+cursor = connection.cursor()
+cursor.execute(query, (username,))
+print(cursor.fetchall())</code></pre>
+                            <div class="diff-footer-action">
+                                <button id="explainFixBtn" class="btn btn-subtle btn-sm">
+                                    <i data-lucide="help-circle"></i> Explain This Fix
+                                </button>
+                                <button id="copySecureCodeBtn" class="btn btn-primary btn-sm">
+                                    <i data-lucide="copy"></i> Copy Secure Code
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Explanation Box -->
+                    <div id="aiExplanationBox" class="ai-explanation-card hidden">
+                        <div class="ai-exp-header">
+                            <i data-lucide="sparkles" class="text-success"></i>
+                            <h4>AI Remediation Explanation (IBM Granite / Watsonx Architecture)</h4>
+                        </div>
+                        <p id="aiExplanationText">
+                            The original code directly concatenates untrusted user input into an SQL statement string. Parameterized queries (prepared statements) separate data from SQL instruction syntax, ensuring user input is never interpreted as executable code, completely neutralizing SQL Injection attacks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">WORKFLOW ARCHITECTURE</span>
+                    <h2 class="section-title">How CodeGuard AI Works</h2>
+                    <p class="section-desc">From raw source code to validated security posture in four precise steps.</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon"><i data-lucide="code"></i></div>
+                        <h3>INPUT</h3>
+                        <p>Paste your source code or load sample vulnerable patterns into the secure sandbox editor.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon"><i data-lucide="cpu"></i></div>
+                        <h3>ANALYZE</h3>
+                        <p>Static pattern rules and AI-assisted engines examine security-sensitive AST structures.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon"><i data-lucide="alert-circle"></i></div>
+                        <h3>EXPLAIN</h3>
+                        <p>Identifies vulnerabilities with CWE mapping, confidence ratings, and beginner-friendly risk breakdowns.</p>
+                    </div>
+                    <div class="step-connector"></div>
+                    <div class="step-card">
+                        <div class="step-number">04</div>
+                        <div class="step-icon"><i data-lucide="check-circle"></i></div>
+                        <h3>FIX</h3>
+                        <p>Receive production-ready secure code recommendations with one-click copying and score improvements.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supported Vulnerabilities Grid -->
+        <section id="vulnerabilities" class="supported-vulns-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">DETECTION COVERAGE</span>
+                    <h2 class="section-title">Supported Vulnerabilities</h2>
+                    <p class="section-desc">CodeGuard AI detects top industry security flaws mapped directly to Common Weakness Enumeration (CWE).</p>
+                </div>
+
+                <div class="vulns-showcase-grid">
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon red"><i data-lucide="database"></i></div>
+                        <h4>SQL Injection</h4>
+                        <span class="cwe-tag">CWE-89</span>
+                        <p>Prevents untrusted user input from manipulating database query logic and extracting unauthorized records.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon orange"><i data-lucide="code"></i></div>
+                        <h4>Cross-Site Scripting (XSS)</h4>
+                        <span class="cwe-tag">CWE-79</span>
+                        <p>Detects unescaped DOM rendering and malicious script execution in client-side applications.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon red"><i data-lucide="terminal"></i></div>
+                        <h4>Command Injection</h4>
+                        <span class="cwe-tag">CWE-78</span>
+                        <p>Identifies dangerous execution of shell commands using unsanitized parameter inputs.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon orange"><i data-lucide="key"></i></div>
+                        <h4>Hardcoded Secrets</h4>
+                        <span class="cwe-tag">CWE-798</span>
+                        <p>Flags plaintext API keys, passwords, bearer tokens, and private cryptographic secrets committed in source code.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon yellow"><i data-lucide="folder-tree"></i></div>
+                        <h4>Path Traversal</h4>
+                        <span class="cwe-tag">CWE-22</span>
+                        <p>Stops directory traversal attacks seeking unauthorized access to sensitive server files via relative path inputs.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon yellow"><i data-lucide="shield-off"></i></div>
+                        <h4>Weak Cryptography</h4>
+                        <span class="cwe-tag">CWE-327</span>
+                        <p>Detects deprecated hashing algorithms (MD5, SHA1) and insecure random number generators.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon red"><i data-lucide="zap"></i></div>
+                        <h4>Dangerous eval()</h4>
+                        <span class="cwe-tag">CWE-95</span>
+                        <p>Prevents arbitrary code execution vulnerabilities resulting from dynamic code evaluation.</p>
+                    </div>
+                    <div class="vuln-showcase-card">
+                        <div class="v-icon yellow"><i data-lucide="upload-cloud"></i></div>
+                        <h4>Insecure File Handling</h4>
+                        <span class="cwe-tag">CWE-434</span>
+                        <p>Identifies unrestricted file uploads and missing MIME-type validation checks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why CodeGuard AI -->
+        <section class="why-section">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-tag">DEVELOPER ADVANTAGE</span>
+                    <h2 class="section-title">Security should be understandable.</h2>
+                </div>
+
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon"><i data-lucide="eye"></i></div>
+                        <h3>Understand</h3>
+                        <p>Don't just detect vulnerabilities. Understand why they matter, how attackers exploit them, and what damage they cause.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon"><i data-lucide=" Wrench"></i><i data-lucide="check"></i></div>
+                        <h3>Fix</h3>
+                        <p>Get practical, production-ready secure coding recommendations instead of cryptic error messages.</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon"><i data-lucide="graduation-cap"></i></div>
+                        <h3>Learn</h3>
+                        <p>Use every scan as a cybersecurity learning experience to build secure coding habits for hackathons and professional careers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About techinA Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <div class="about-card">
+                    <div class="about-badge">BUILT BY TECHINA</div>
+                    <h2>Engineering Secure Futures</h2>
+                    <p class="about-desc">
+                        CodeGuard AI is a cybersecurity-focused project created by the <strong>techinA</strong> team as part of our vision to build practical technology that makes digital security more accessible to developers and students.
+                    </p>
+                    <div class="about-tagline">
+                        <em>Made with curiosity, code, and a passion for cybersecurity.</em>
+                    </div>
+                    <div class="about-meta font-mono">
+                        <span>AI</span> • <span>Cybersecurity</span> • <span>Software Development</span>
+                    </div>
+                    <div class="about-links">
+                        <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-subtle btn-sm"><i data-lucide="github"></i> GitHub</a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="btn btn-subtle btn-sm"><i data-lucide="linkedin"></i> LinkedIn</a>
+                        <a href="#" class="btn btn-subtle btn-sm"><i data-lucide="globe"></i> Website</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>CODEGUARD AI</span>
+                </div>
+                <p>AI-Powered Code Vulnerability Scanner by <strong>techinA</strong>.</p>
+            </div>
+            <div class="footer-right">
+                <p class="footer-disclaimer">Educational security tool — always validate findings with professional security testing.</p>
+                <p class="footer-copy">© 2026 techinA Team. Built for innovation and secure coding.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vulnerability Detail Modal -->
+    <div id="vulnDetailModal" class="modal-backdrop hidden">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <span id="modalSeverityBadge" class="severity-badge critical">CRITICAL</span>
+                    <h3 id="modalVulnTitle">SQL Injection</h3>
+                    <span id="modalCweBadge" class="cwe-tag font-mono">CWE-89</span>
+                </div>
+                <button id="closeModalBtn" class="modal-close-btn" aria-label="Close modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBodyContent">
+                <!-- Dynamically populated -->
+            </div>
+            <div class="modal-footer">
+                <button id="modalCloseActionBtn" class="btn btn-primary">Got It</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Report Modal -->
+    <div id="securityReportModal" class="modal-backdrop hidden">
+        <div class="modal-container report-modal-container">
+            <div class="modal-header">
+                <div class="modal-title-group">
+                    <div class="logo-text">
+                        <span class="brand-name">CODEGUARD AI</span>
+                        <span class="brand-sub">Executive Security Report</span>
+                    </div>
+                </div>
+                <button id="closeReportModalBtn" class="modal-close-btn" aria-label="Close report">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body report-printable-area" id="reportContentArea">
+                <div class="report-header-info">
+                    <div>
+                        <h4>Project: <span id="reportProjectName">Demo Source Code</span></h4>
+                        <p class="font-mono">Scan Timestamp: <span id="reportTimestamp">2026-06-06 14:32 UTC</span></p>
+                    </div>
+                    <div class="report-score-box">
+                        <span class="rs-label">Security Score</span>
+                        <span id="reportScoreVal" class="rs-val text-danger">42 / 100</span>
+                    </div>
+                </div>
+
+                <div class="report-summary-box">
+                    <h5>Executive Summary</h5>
+                    <p id="reportSummaryNarrative">Static analysis and pattern detection identified critical security vulnerabilities that require immediate remediation before production deployment.</p>
+                </div>
+
+                <div class="report-table-wrapper">
+                    <h5>Vulnerability Breakdown</h5>
+                    <table class="report-table font-mono">
+                        <thead>
+                            <tr>
+                                <th>Severity</th>
+                                <th>Vulnerability</th>
+                                <th>CWE</th>
+                                <th>Line</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTableBody">
+                            <!-- Populated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="report-recommendation-box">
+                    <h5>Top Remediation Priority</h5>
+                    <p id="reportTopRecommendation">Implement parameterized queries and prepared statements for all database interactions. Remove hardcoded secrets and enforce input sanitization.</p>
+                </div>
+            </div>
+            <div class="modal-footer report-actions">
+                <button id="printReportBtn" class="btn btn-secondary">
+                    <i data-lucide="printer"></i> Print / Save as PDF
+                </button>
+                <button id="copyReportBtn" class="btn btn-primary">
+                    <i data-lucide="copy"></i> Copy Report Summary
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/vulnerabilities.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
